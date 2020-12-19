@@ -1,0 +1,71 @@
+body {
+  color: #3398a4;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+.card {
+  margin: 10px 0;
+  border: 1px solid #2d4f53;
+}
+.popular {
+  font-size: 17px;
+  text-align: center;
+  line-height: 30px;
+}
+.search-bar {
+  border: 1px solid #2d4f53;
+}
+.btn {
+  background-color: #3398a4;
+}
+.city {
+  margin: 10px 0 0 0;
+  font-size: 50px;
+}
+.current-weather,
+.date-time {
+  font-size: 28px;
+}
+.unit-selector {
+  color: #2d4f53;
+  font-size: 19px;
+  position: relative;
+  top: -66px;
+  left: 90px;
+}
+a {
+  text-decoration: none;
+  color: #2d4f53;
+}
+
+.temperature {
+  font-size: 75px;
+  line-height: 55px;
+}
+.weather-icon {
+  font-size: 150px;
+}
+.more-info {
+  text-align: center;
+  margin: 10px 0 0 0;
+  color: #2d4f53;
+}
+.precipitation,
+.humidity,
+.wind {
+  text-align: center;
+  font-size: 23px;
+}
+.precip-value,
+.humid-value,
+.wind-speed {
+  text-align: center;
+  color: #2d4f53;
+  font-size: 19px;
+}
+.five-day {
+  font-size: 20px;
+  text-align: center;
+}
+.five-day .fas {
+  font-size: 55px;
+}
