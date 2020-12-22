@@ -1,4 +1,3 @@
-import axios from "axios";
 
 function getLocation(position) {
   let latitude = position.coords.latitude;
