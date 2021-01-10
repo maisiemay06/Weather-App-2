@@ -11,7 +11,7 @@ body {
 .search-bar {
   border: 1px solid #2d4f53;
 }
-.btn {
+.search .btn {
   background-color: #3398a4;
 }
 .city {
@@ -28,10 +28,7 @@ body {
   position: relative;
   top: -66px;
   left: 90px;
-}
-a {
   text-decoration: none;
-  color: #2d4f53;
 }
 
 .temperature {
@@ -41,8 +38,9 @@ a {
 
 .more-info {
   text-align: center;
-  margin: 10px 0 0 0;
   color: #2d4f53;
+  border-color: none;
+  font-size: 15px;
 }
 .sunrise,
 .sunset,
@@ -59,11 +57,11 @@ a {
   color: #2d4f53;
   font-size: 19px;
 }
-.five-day {
+.forecast {
   font-size: 20px;
   text-align: center;
 }
-.five-day .fas {
+.forecast .fas {
   font-size: 55px;
 }
 
