@@ -65,3 +65,11 @@ a {
 .five-day .fas {
   font-size: 55px;
 }
+
+.unit-selector .active {
+  cursor: default;
+  color: #2d4f53;
+}
+.unit-selector .active:hover {
+  text-decoration: none;
+}

@@ -27,6 +27,7 @@ function showTemperature(response) {
   let description = document.querySelector("#weather-description");
   description.innerHTML = `${response.data.weather[0].main}`;
   
+  celciusTemperature = response.data.main.temp;
 }
 
 function search(city) {
@@ -48,17 +49,26 @@ function searchCity(event) {
   axios.get(apiUrl).then(showTemperature);
 }
 
-function changeToFarenheit(event) {
+function convertToFarenheit(event) {
   event.preventDefault();
-  let currentTemperature = document.querySelector("#current-temperature");
-  currentTemperature.innerHTML = "59°";
+  let farenheitTemperature = (celciusTemperature*9)/5+32;
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = `${Math.round(farenheitTemperature)}°`;
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
-function changeToCelcius(event) {
+function convertToCelcius(event) {
   event.preventDefault();
-  let currentTemperature = document.querySelector("#current-temperature");
-  currentTemperature.innerHTML = "15°";
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = `${Math.round(celciusTemperature)}°`;
 }
+
+let fahrenheitLink = document.querySelector("#fahrenheit-selector");
+fahrenheitLink.addEventListener("click", convertToFarenheit);
+let celciusTemperature = null;
+let celciusLink = document.querySelector("#celcius-selector");
+celciusLink.addEventListener("click", convertToCelcius);
 
 
 let citySearch = document.querySelector("#city-search");
@@ -66,12 +76,6 @@ citySearch.addEventListener("submit", searchCity);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getPosition);
-
-let celciusSelector = document.querySelector("#celcius-selector");
-celciusSelector.addEventListener("click", changeToCelcius);
-
-let farenheitSelector = document.querySelector("#farenheit-selector");
-farenheitSelector.addEventListener("click", changeToFarenheit);
 
 let currentDay = document.querySelector("#day-time");
 let now = new Date();
