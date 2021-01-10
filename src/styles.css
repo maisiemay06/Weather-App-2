@@ -6,11 +6,7 @@ body {
   margin: 10px 0;
   border: 1px solid #2d4f53;
 }
-.popular {
-  font-size: 17px;
-  text-align: center;
-  line-height: 30px;
-}
+
 .search-bar {
   border: 1px solid #2d4f53;
 }

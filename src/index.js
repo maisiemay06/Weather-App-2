@@ -1,4 +1,6 @@
 
+
+
 function getLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -22,6 +24,9 @@ function showTemperature(response) {
   let newCity = response.data.name;
   let cityName = document.querySelector("#city-name");
   cityName.innerHTML = `${newCity}`;
+  let description = document.querySelector("#weather-description");
+  description.innerHTML = `${response.data.weather[0].main}`;
+  
 }
 
 function search(city) {
@@ -42,16 +47,19 @@ function searchCity(event) {
 
   axios.get(apiUrl).then(showTemperature);
 }
-function changeToCelcius(event) {
-  event.preventDefault();
-  let currentTemperature = document.querySelector("#current-temperature");
-  currentTemperature.innerHTML = "15°";
-}
+
 function changeToFarenheit(event) {
   event.preventDefault();
   let currentTemperature = document.querySelector("#current-temperature");
   currentTemperature.innerHTML = "59°";
 }
+
+function changeToCelcius(event) {
+  event.preventDefault();
+  let currentTemperature = document.querySelector("#current-temperature");
+  currentTemperature.innerHTML = "15°";
+}
+
 
 let citySearch = document.querySelector("#city-search");
 citySearch.addEventListener("submit", searchCity);
