@@ -82,7 +82,7 @@ function showForecast(response){
           <p> ${formatTime(forecast.dt * 1000)}
            </br>
           <strong> ${Math.round(forecast.main.temp_max)}º</strong>
-           - ${Math.round(forecast.main.temp_min)}º
+           | ${Math.round(forecast.main.temp_min)}º
           </p>
       </div>       
       `;
@@ -93,23 +93,16 @@ function search(city) {
   let apiKey = "d8f001fd84ae14313a7e46b613ac8c97";
   let unit = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-
   axios.get(apiUrl).then(showTemperature);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
-  
   axios.get(apiUrl).then(showForecast);
 }
 
 function searchCity(event) {
   event.preventDefault();
   let inputCity = document.querySelector("#city-search-input");
-  let inputCityName = inputCity.value;
-  let apiKey = "d8f001fd84ae14313a7e46b613ac8c97";
-  let unit = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityName}&appid=${apiKey}&units=${unit}`;
-
-  axios.get(apiUrl).then(showTemperature);
+ search(inputCity.value);
 }
 
 function convertToFarenheit(event) {
