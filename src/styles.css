@@ -5,6 +5,7 @@ body {
 .card {
   margin: 10px 0;
   border: 1px solid #2d4f53;
+  max-width: 900px;
 }
 
 .search-bar {
@@ -37,9 +38,7 @@ a {
   font-size: 75px;
   line-height: 55px;
 }
-.weather-icon {
-  font-size: 150px;
-}
+
 .more-info {
   text-align: center;
   margin: 10px 0 0 0;
