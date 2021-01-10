@@ -1,5 +1,30 @@
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+let day = days[date.getDay()];
+return `${day}, ${formatTime(timestamp)}`;
+}
 
-
+function formatTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
 
 function getLocation(position) {
   let latitude = position.coords.latitude;
@@ -27,8 +52,20 @@ function showTemperature(response) {
   let description = document.querySelector("#weather-description");
   description.innerHTML = `${response.data.weather[0].main}`;
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  let currentDay = document.querySelector("#day-time");
+currentDay.innerHTML = formatDate(response.data.dt * 1000); 
+  
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = `${response.data.main.humidity}%`;
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = `${Math.round(response.data.wind.speed)} km/h`
+  let sunrise = document.querySelector("#sunrise-time");
+  sunrise.innerHTML = formatTime(response.data.sys.sunrise * 1000);
+  let sunset = document.querySelector("#sunset-time");
+  sunset.innerHTML = formatTime(response.data.sys.sunset * 1000);
 
   celciusTemperature = response.data.main.temp;
+  console.log(response.data);
 }
 
 function search(city) {
@@ -80,20 +117,6 @@ citySearch.addEventListener("submit", searchCity);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getPosition);
 
-let currentDay = document.querySelector("#day-time");
-let now = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-let day = days[now.getDay()];
-let hours = now.getHours();
-let minutes = ("0" + now.getMinutes()).slice(-2);
-currentDay.innerHTML = `${day}, ${hours}:${minutes}`;
+
 
 search("London");

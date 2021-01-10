@@ -44,13 +44,15 @@ a {
   margin: 10px 0 0 0;
   color: #2d4f53;
 }
-.precipitation,
+.sunrise,
+.sunset,
 .humidity,
 .wind {
   text-align: center;
   font-size: 23px;
 }
-.precip-value,
+.sunrise-time,
+.sunset-time,
 .humid-value,
 .wind-speed {
   text-align: center;
@@ -67,7 +69,7 @@ a {
 
 .unit-selector .active {
   cursor: default;
-  color: #2d4f53;
+  color: #3398a4;
 }
 .unit-selector .active:hover {
   text-decoration: none;
